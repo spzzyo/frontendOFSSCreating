@@ -42,5 +42,16 @@ export const routes = [
     name: 'Settings',
    
   },
-  
+  {
+    path: '/login',
+    name: 'Login',
+  },
+  {
+    path: '/signup',
+    name: 'Signup',
+  },
+  {
+    path: '/joiningfee',
+    name: 'JoiningFee',
+  },
 ];
