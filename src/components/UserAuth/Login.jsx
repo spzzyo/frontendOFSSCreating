@@ -2,19 +2,12 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const [formData, setFormData] = useState({
-    username: '',
-    password: '',
-  });
-
+  const [formData, setFormData] = useState({ username: "", password: "" });
   const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e) => {
@@ -41,7 +34,6 @@ const Login = () => {
         margin: '0 2rem'
       }}>
         
-        {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
           <h1 style={{
             fontSize: '2.25rem',
@@ -57,8 +49,6 @@ const Login = () => {
         </div>
 
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-          
-          {/* Login Form */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
             <div>
               <label style={{
@@ -118,8 +108,6 @@ const Login = () => {
               />
             </div>
           </div>
-
-          {/* Submit Button */}
           <div style={{ textAlign: 'center' }}>
             <button
               type="submit"
@@ -149,7 +137,7 @@ const Login = () => {
           <p style={{ color: '#9ca3af' }}>
             Don't have an account?{' '}
             <button
-              onClick={() => navigate('/usersignup')}
+              onClick={() => navigate("/signup")}
               style={{
                 color: '#10b981',
                 fontWeight: '600',

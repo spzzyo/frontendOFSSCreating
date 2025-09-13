@@ -5,6 +5,7 @@ import UserManagementPage from "./components/Admin/UserManagementPAge.jsx";
 import AdminProfile from "./components/Admin/AdminProfile.jsx";
 import Login from './components/UserAuth/Login';
 import Signup from './components/UserAuth/Signup';
+import JoiningFee from "./components/UserAuth/JoiningFee.jsx";
 import SavingsCalculator from "./components/SavingsCalculator/SavingsCalculator.jsx"
 function App() {
   return (
@@ -14,8 +15,9 @@ function App() {
         <Route path="/users" element={<UserManagementPage />} />
          <Route path="/profile" element={<AdminProfile />} /> 
         <Route path="/calculator" element={<SavingsCalculator/>} />
-        <Route path="/userauth" element={<Login/>} />
-          <Route path="/usersignup" element={<Signup/>} />
+        <Route path="/login" element={<Login/>} />
+          <Route path="/signup" element={<Signup/>} />
+          <Route path="/joiningfee" element={<JoiningFee/>} />
       </Routes>
     </BrowserRouter>
   );
