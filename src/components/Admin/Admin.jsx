@@ -1,4 +1,6 @@
 import React from "react";
+import AnalyticsSection from "./AdminAnalytics";
+
 import {
   Users,
   Clock,
@@ -90,76 +92,41 @@ const AdminDashboard = () => {
       </header>
 
       <main className="container mx-auto px-6 py-8 space-y-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {statsData.map((stat, i) => {
-            const Icon = stat.icon;
-            return (
-              <div
-                key={i}
-                className="bg-gradient-to-r from-gray-800 via-gray-900 to-black p-6 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300"
-              >
-                <div className="flex justify-between items-center">
-                  <p className="text-sm text-gray-400">{stat.title}</p>
-                  <div className="bg-gray-700 p-2 rounded-full">
-                    <Icon className="h-5 w-5 text-emerald-400" />
-                  </div>
-                </div>
-                <h2 className="text-3xl font-bold mt-2">{stat.value}</h2>
-                {stat.subtitle && <p className="text-xs text-gray-500">{stat.subtitle}</p>}
-                <p
-                  className={`text-xs mt-1 ${
-                    stat.change.startsWith("-") ? "text-red-400" : "text-emerald-400"
-                  }`}
-                >
-                  {stat.change} from last month
-                </p>
-              </div>
-            );
-          })}
+
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+  {statsData.map((stat, i) => {
+    const Icon = stat.icon;
+    return (
+      <div
+        key={i}
+        className="bg-gradient-to-r from-gray-800 via-gray-900 to-black p-6 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300"
+      >
+        <div className="flex justify-between items-center">
+          <p className="text-sm text-gray-400">{stat.title}</p>
+          <div className="bg-gray-700 p-2 rounded-full">
+            <Icon className="h-5 w-5 text-emerald-400" />
+          </div>
         </div>
+        <h2 className="text-3xl font-bold mt-2">{stat.value}</h2>
+        {stat.subtitle && <p className="text-xs text-gray-500">{stat.subtitle}</p>}
+        <p
+          className={`text-xs mt-1 ${
+            stat.change.startsWith("-") ? "text-red-400" : "text-emerald-400"
+          }`}
+        >
+          {stat.change} from last month
+        </p>
+      </div>
+    );
+  })}
+</div>
+<AnalyticsSection /> 
+
+
+
 
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
-          <div className="bg-gray-900 p-6 rounded-xl shadow-lg backdrop-blur-sm bg-opacity-30 border border-gray-700">
-            <h2 className="text-lg font-semibold mb-4">User Management</h2>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm border border-gray-700">
-                <thead className="bg-gray-800 text-gray-300">
-                  <tr>
-                    <th className="px-3 py-2 text-left">User ID</th>
-                    <th className="px-3 py-2 text-left">Name</th>
-                    <th className="px-3 py-2 text-left">Email</th>
-                    <th className="px-3 py-2 text-left">Status</th>
-                    <th className="px-3 py-2 text-left">Card Type</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {userData.map((user) => {
-                    const StatusIcon = getStatusIcon(user.status);
-                    return (
-                      <tr key={user.id} className="border-t border-gray-700 hover:bg-gray-800 transition">
-                        <td className="px-3 py-2 font-medium">{user.id}</td>
-                        <td className="px-3 py-2">{user.name}</td>
-                        <td className="px-3 py-2 text-gray-400">{user.email}</td>
-                        <td className="px-3 py-2">
-                          <span
-                            className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs ${getStatusColor(
-                              user.status
-                            )}`}
-                          >
-                            <StatusIcon className="h-3 w-3" />
-                            {user.status}
-                          </span>
-                        </td>
-                        <td className="px-3 py-2">{user.cardType}</td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div className="bg-gray-900 p-6 rounded-xl shadow-lg backdrop-blur-sm bg-opacity-30 border border-gray-700">
+          {/* <div className="bg-gray-900 p-6 rounded-xl shadow-lg backdrop-blur-sm bg-opacity-30 border border-gray-700">
             <h2 className="text-lg font-semibold mb-4">Recent Transactions</h2>
             <div className="overflow-x-auto">
               <table className="w-full text-sm border border-gray-700">
@@ -197,7 +164,52 @@ const AdminDashboard = () => {
                 </tbody>
               </table>
             </div>
+          </div> */}
+
+          
+          <div className="bg-gray-900 p-6 rounded-xl shadow-lg backdrop-blur-sm bg-opacity-30 border border-gray-700">
+            <h2 className="text-lg font-semibold mb-4">User Management</h2>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm border border-gray-700">
+                <thead className="bg-gray-800 text-gray-300">
+                  <tr>
+                    <th className="px-3 py-2 text-left">User ID</th>
+                    <th className="px-3 py-2 text-left">Name</th>
+                    <th className="px-3 py-2 text-left">Email</th>
+                    <th className="px-3 py-2 text-left">Status</th>
+                    <th className="px-3 py-2 text-left">Card Type</th>
+                    <th className="px-3 py-2 text-left">Documents</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {userData.map((user) => {
+                    const StatusIcon = getStatusIcon(user.status);
+                    return (
+                      <tr key={user.id} className="border-t border-gray-700 hover:bg-gray-800 transition">
+                        <td className="px-3 py-2 font-medium">{user.id}</td>
+                        <td className="px-3 py-2">{user.name}</td>
+                        <td className="px-3 py-2 text-gray-400">{user.email}</td>
+                        <td className="px-3 py-2">
+                          <span
+                            className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs ${getStatusColor(
+                              user.status
+                            )}`}
+                          >
+                            <StatusIcon className="h-3 w-3" />
+                            {user.status}
+                          </span>
+                        </td>
+                        <td className="px-3 py-2">{user.cardType}</td>
+                        <td className="px-3 py-2"><button  onClick={() => navigate("/users/1")} className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs bg-amber-500">Show Docs</button></td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
           </div>
+
+          {/* nbb */}
         </div>
 
         <div className="bg-gray-900 p-6 rounded-xl shadow-lg backdrop-blur-sm bg-opacity-30 border border-gray-700">
@@ -212,9 +224,12 @@ const AdminDashboard = () => {
             <button className="flex items-center justify-center gap-2 bg-emerald-600 text-white rounded-lg py-3 hover:bg-emerald-700 shadow-lg transform hover:scale-105 transition">
               <Eye className="h-5 w-5" /> Manage Products
             </button>
-            <button className="flex items-center justify-center gap-2 bg-emerald-600 text-white rounded-lg py-3 hover:bg-emerald-700 shadow-lg transform hover:scale-105 transition">
-              <FileText className="h-5 w-5" /> View Reports
-            </button>
+              
+              <button
+              onClick={() => navigate("/SubAdmin")}
+              className="flex items-center justify-center gap-2 bg-emerald-600 text-white rounded-lg py-3 hover:bg-emerald-700 shadow-lg transform hover:scale-105 transition"
+            ><FileText className="h-5 w-5" /> Admin Management</button>
+
           </div>
         </div>
       </main>
@@ -225,5 +240,6 @@ const AdminDashboard = () => {
     </div>
   );
 };
+
 
 export default AdminDashboard;
