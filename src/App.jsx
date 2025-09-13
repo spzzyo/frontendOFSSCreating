@@ -11,11 +11,6 @@ import SubAdmin from "./components/Admin/SubAdminDetails.jsx";
 import Login from "./pages/Auth/Login.jsx";
 import Signup from "./pages/Auth/Signup.jsx";
 import JoiningFee from "./pages/Auth/JoiningFee.jsx";
-
-
-import Login from './components/UserAuth/Login';
-import Signup from './components/UserAuth/Signup';
-import JoiningFee from "./components/UserAuth/JoiningFee.jsx";
 import SavingsCalculator from "./components/SavingsCalculator/SavingsCalculator.jsx"
 function App() {
   return (
@@ -37,9 +32,6 @@ function App() {
 
          <Route path="/profile" element={<AdminProfile />} /> 
         <Route path="/calculator" element={<SavingsCalculator/>} />
-        <Route path="/login" element={<Login/>} />
-          <Route path="/signup" element={<Signup/>} />
-          <Route path="/joiningfee" element={<JoiningFee/>} />
       </Routes>
     </BrowserRouter>
   );
