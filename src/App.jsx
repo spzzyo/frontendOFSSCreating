@@ -8,17 +8,22 @@ import Dashboard from "./pages/Customer/Dashboard.jsx";
 import Transactions from "./pages/Customer/Transactions.jsx";
 import UserProfile from "./components/Admin/UserProfile.jsx";
 import SubAdmin from "./components/Admin/SubAdminDetails.jsx"
+import HomePage from "./pages/Landing.jsx";
+import PaymentsAutoPay from "./pages/Customer/Payments.jsx";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<AdminDashboard />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/users" element={<UserManagementPage />} />
          <Route path="/profile" element={<AdminProfile />} />
         <Route path="/user" element={<CustomerLayout />} >
          <Route index element={<Dashboard />} />
-         <Route path="transactions" element={<Transactions/>}/>               
+         <Route path="transactions" element={<Transactions/>}/>   
+          <Route path="payments" element={<PaymentsAutoPay/>}/>    
+ 
+
 
         </Route>
          <Route path="/usersProfile" element={<UserProfile />} />

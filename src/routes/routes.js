@@ -23,13 +23,13 @@ export const routes = [
    
   },
   {
-    path: '/user/settings',
-    name: 'Settings',
+    path: '/user/myCards',
+    name: 'mycards',
    
   },
   {
-    path: '/dashboard',
-    name: 'Dashboard',
+    path: '/payments',
+    name: 'Payments and Auto-Pay',
 
   },
   {
