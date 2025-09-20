@@ -27,8 +27,8 @@ function App() {
          <Route path="/profile" element={<AdminProfile />} />
         <Route path="/user" element={<CustomerLayout />} >
          <Route index element={<Dashboard />} />
-         <Route path="transactions" element={<Transactions/>}/>   
-          <Route path="payments" element={<PaymentsAutoPay/>}/>    
+         <Route path="/user/transactions" element={<Transactions/>}/>   
+          <Route path="/user/payments" element={<PaymentsAutoPay/>}/>    
  
 
 
