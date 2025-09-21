@@ -16,6 +16,7 @@ import HomePage from "./pages/Landing.jsx";
 import PaymentsAutoPay from "./pages/Customer/Payments.jsx";
 import SavingsCalculator from "./pages/SavingsCalculator";
 import Products from "./pages/Products";
+import UserProduct from "./pages/Customer/UserProduct";
 
 function App() {
   return (
@@ -35,7 +36,7 @@ function App() {
          <Route index element={<Dashboard />} />
          <Route path="/user/transactions" element={<Transactions/>}/>   
           <Route path="/user/payments" element={<PaymentsAutoPay/>}/>    
-          {/* <Route path="/user/products" element={<Products/>}/>   */}
+          <Route path="/user/products" element={<UserProduct/>}/>  
 
 
         </Route>
