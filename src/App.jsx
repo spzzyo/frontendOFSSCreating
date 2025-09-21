@@ -14,6 +14,8 @@ import JoiningFee from "./pages/Auth/JoiningFee.jsx";
 
 import HomePage from "./pages/Landing.jsx";
 import PaymentsAutoPay from "./pages/Customer/Payments.jsx";
+import SavingsCalculator from "./pages/SavingsCalculator";
+import Products from "./pages/Products";
 
 function App() {
   return (
@@ -23,16 +25,23 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/joiningfee" element={<JoiningFee />} />
         <Route path="/" element={<HomePage />} />
+          <Route path="/savingsCalc" element={<SavingsCalculator />} />
         <Route path="/users" element={<UserManagementPage />} />
          <Route path="/profile" element={<AdminProfile />} />
+        <Route path="/products" element={<Products/>}/>  
+
+         {/* With User kind sidebars */}
         <Route path="/user" element={<CustomerLayout />} >
          <Route index element={<Dashboard />} />
          <Route path="/user/transactions" element={<Transactions/>}/>   
           <Route path="/user/payments" element={<PaymentsAutoPay/>}/>    
- 
+          {/* <Route path="/user/products" element={<Products/>}/>   */}
 
 
         </Route>
+
+
+
          <Route path="/usersProfile" element={<UserProfile />} />
          <Route path="/SubAdmin" element={<SubAdmin />} />
 

@@ -9,6 +9,27 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@keyframes slide-left {
+  0% { left: -80px; }
+  50% { left: 60%; }
+  100% { left: 300px; }
+}
+
+.animate-slide-left {
+  animation: slide-left 3s ease-in-out forwards;
+}
+
+@keyframes progress {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+.animate-progress {
+  animation: progress 3s linear forwards;
+}
+
+
 /* ---- Custom Scrollbar Styles ---- */
 
 
